@@ -1,17 +1,31 @@
 import Reveal from "./Reveal";
 import { FACEBOOK_URL } from "../constants";
 
-const GALLERY_ITEMS = [
-  { src: "/gallery/gallery-1.jpg", label: "Wedding Reception", ratio: "aspect-[4/5]" },
-  { src: "/gallery/gallery-2.jpg", label: "Birthday Celebration", ratio: "aspect-square" },
-  { src: "/gallery/gallery-3.jpg", label: "Corporate Event", ratio: "aspect-[4/3]" },
-  { src: "/gallery/gallery-4.jpg", label: "Debut Celebration", ratio: "aspect-square" },
-  { src: "/gallery/gallery-5.jpg", label: "Christening", ratio: "aspect-[4/5]" },
-  { src: "/gallery/gallery-6.jpg", label: "House Blessing", ratio: "aspect-[4/3]" },
-  { src: "/gallery/gallery-7.jpg", label: "Kiddie Party", ratio: "aspect-square" },
-  { src: "/gallery/gallery-8.jpg", label: "Family Gathering", ratio: "aspect-[4/5]" },
-  { src: "/gallery/gallery-9.jpg", label: "Buffet Setup", ratio: "aspect-[4/3]" },
+const OVERLAY_LABEL = "Savor and Style Events";
+
+const RATIOS = ["aspect-[4/5]", "aspect-square", "aspect-[4/3]"];
+
+const GALLERY_FILES = [
+  "Gallery 1.jpg",
+  "Gallery 2.jpg",
+  "Gallery 3.jpg",
+  "Gallery 4.jpg",
+  "Gallery 5.jpg",
+  "Gallery 6.jpg",
+  "Gallery 7.jpg",
+  "Gallery 9.jpg",
+  "Gallery 10.jpg",
+  "Gallery 11.jpg",
+  "Gallery 12.jpg",
+  "Gallery 13.jpg",
+  "Untitled design (1).png",
+  "Untitled design (8).png",
 ];
+
+const GALLERY_ITEMS = GALLERY_FILES.map((file, index) => ({
+  src: encodeURI(`/gallery/${file}`),
+  ratio: RATIOS[index % RATIOS.length],
+}));
 
 export default function Gallery() {
   return (
@@ -29,12 +43,12 @@ export default function Gallery() {
               <div className={`group relative ${item.ratio} rounded-xl overflow-hidden cursor-pointer`}>
                 <img
                   src={item.src}
-                  alt={item.label}
+                  alt={OVERLAY_LABEL}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-wine/0 group-hover:bg-wine/60 transition-colors duration-300 flex items-center justify-center">
                   <span className="text-white font-display font-semibold text-lg text-center px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {item.label}
+                    {OVERLAY_LABEL}
                   </span>
                 </div>
               </div>
