@@ -18,8 +18,8 @@ const GALLERY_FILES = [
   "Gallery 11.jpg",
   "Gallery 12.jpg",
   "Gallery 13.jpg",
-  "Untitled design (1).png",
-  "Untitled design (8).png",
+  "Gallery 14.jpg",
+  "Gallery 15.jpg",
 ];
 
 const GALLERY_ITEMS = GALLERY_FILES.map((file, index) => ({
